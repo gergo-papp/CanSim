@@ -12,7 +12,7 @@ namespace CanSim.Model
 
         public CanBus Bus { get; }
         public int BitRate { get; }
-        public IImmutableSet<CanNodeSession> NodeSessions => _nodeSessions.ToImmutableHashSet();
+        public IImmutableSet<CanNodeSession> NodeSessions => _nodeSessions.ToImmutableHashSet(); // return only a copy
 
         public Network(CanBus bus, int bitRate)
         {
@@ -46,8 +46,14 @@ namespace CanSim.Model
 
         public void ConnectCanNodeSession(CanNodeSession nodeSession)
         {
-            // TODO: Connect to bus
-            throw new NotImplementedException();
+            if (_nodeSessions.Contains(nodeSession))
+            {
+                nodeSession.CanBusUnubscription = nodeSession.CanNode.Transceiver.Subscribe(Bus);
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         public void ConnectAllCanNodeSessions()
@@ -60,8 +66,14 @@ namespace CanSim.Model
 
         public void DisconnectCanNodeSession(CanNodeSession nodeSession)
         {
-            // TODO: Disconnect from bus
-            throw new NotImplementedException();
+            if (_nodeSessions.Contains(nodeSession))
+            {
+                nodeSession.CanBusUnubscription.Dispose();
+            }
+            else
+            {
+                throw new Exception();
+            }
         }
 
         public void DisconnectAllCanNodeSessions()

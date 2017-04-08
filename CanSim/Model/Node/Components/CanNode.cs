@@ -1,4 +1,6 @@
-﻿using CanSim.Model.Signal.Components;
+﻿using System;
+using CanSim.Model.Bus;
+using CanSim.Model.Signal.Components;
 
 namespace CanSim.Model.Node.Components
 {
@@ -14,5 +16,7 @@ namespace CanSim.Model.Node.Components
             MicroController = microController;
             Transceiver = transceiver;
         }
+
+
     }
 }
