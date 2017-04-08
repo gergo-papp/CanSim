@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Threading;
+﻿using System.Threading;
 using CanSim.Model.Node.Components;
 
 namespace CanSim.Model.Node
@@ -12,7 +11,7 @@ namespace CanSim.Model.Node
         public CanNodeSession(CanNode canNode)
         {
             CanNode = canNode;
-            ControllerThread = new Thread(new ThreadStart(CanNode.MicroController.Run));
+            ControllerThread = new Thread(CanNode.MicroController.Run);
         }
 
         public void Start()

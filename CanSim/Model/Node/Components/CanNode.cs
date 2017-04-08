@@ -1,4 +1,4 @@
-﻿using System;
+﻿using CanSim.Model.Signal.Components;
 
 namespace CanSim.Model.Node.Components
 {

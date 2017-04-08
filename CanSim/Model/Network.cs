@@ -11,11 +11,13 @@ namespace CanSim.Model
         private readonly ISet<CanNodeSession> _nodeSessions;
 
         public CanBus Bus { get; }
+        public int BitRate { get; }
         public IImmutableSet<CanNodeSession> NodeSessions => _nodeSessions.ToImmutableHashSet();
 
-        public Network(CanBus bus)
+        public Network(CanBus bus, int bitRate)
         {
             Bus = bus;
+            BitRate = bitRate;
             _nodeSessions = new HashSet<CanNodeSession>();
         }
 

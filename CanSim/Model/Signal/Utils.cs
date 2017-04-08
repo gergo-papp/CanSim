@@ -9,5 +9,10 @@ namespace CanSim.Model.Signal
         {
             throw new NotImplementedException();
         }
+
+        public static int ToInt( BitArray bitArray)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
