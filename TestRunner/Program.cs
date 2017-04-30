@@ -29,8 +29,9 @@ namespace TestRunner
             network.AddNodeSession(nodeSession3, ConnectionState.Connected);
 
 
-            canSimulator.RunFor(10);
-            Thread.Sleep(5000);
+            canSimulator.RunFor(10000);
+
+            Thread.Sleep(15000);
             canSimulator.Stop();
         }
     }

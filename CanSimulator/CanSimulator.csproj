@@ -42,7 +42,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Execution\CanSimulator.cs" />
-    <Compile Include="Execution\Timer.cs" />
     <Compile Include="Factory\Builders.cs" />
     <Compile Include="Factory\CanSimulatorFactory.cs" />
     <Compile Include="Factory\Factory.cs" />

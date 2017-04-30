@@ -28,7 +28,7 @@ namespace CanSimulator.Model.Node
 
         public void Stop()
         {
-            ControllerThread.Abort();
+            ControllerThread?.Abort();
             ControllerThread = null;
         }
     }
