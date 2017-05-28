@@ -6,11 +6,22 @@ namespace CanSimulator.Model.Node.Components
 {
     public class CanTransceiver : IObservable<Bit>, IObserver<Bit>
     {
+        private CanController _controller;
         private IObserver<Bit> _busObserver;
         private Bit _value;
 
-        internal CanTransceiver()
+        public CanTransceiver()
         {
+        }
+
+        internal CanTransceiver(CanController controller) : this()
+        {
+            SetController(controller);
+        }
+
+        public void SetController(CanController controller)
+        {
+            _controller = controller;
         }
 
         public Bit Read()
@@ -42,6 +53,7 @@ namespace CanSimulator.Model.Node.Components
         public void OnNext(Bit value)
         {
             _value = value;
+            _controller.ReceiveBit(_value);
         }
     }
 }

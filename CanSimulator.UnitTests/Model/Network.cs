@@ -5,6 +5,7 @@ using CanSimulator.Model.Bus;
 using CanSimulator.Model.Node;
 using CanSimulator.Model.Node.Components;
 using CanSimulator.Model.Node.Utils;
+using CanSimulator.Model.Signal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CanSimulator.UnitTests.Model
@@ -15,7 +16,7 @@ namespace CanSimulator.UnitTests.Model
         [TestMethod]
         public void AddNodeSessionTest()
         {
-            var canSession = new CanNodeSession(new CanNode(new MockMicroControllerImpl(new CanController()), new CanTransceiver()));
+            var canSession = Utils.GetNewCanSession();
             var network = new Network(new CanBus(), 1000);
 
             network.AddNodeSession(canSession, ConnectionState.Disconnected);
@@ -26,7 +27,7 @@ namespace CanSimulator.UnitTests.Model
         [TestMethod]
         public void RemoveNodeSessionTest()
         {
-            var canSession = new CanNodeSession(new CanNode(new MockMicroControllerImpl(new CanController()), new CanTransceiver()));
+            var canSession = Utils.GetNewCanSession();
             var network = new Network(new CanBus(), 1000);
 
             network.AddNodeSession(canSession, ConnectionState.Disconnected);
@@ -39,9 +40,9 @@ namespace CanSimulator.UnitTests.Model
         [TestMethod]    
          public void RemoveAllNodeSessionsTest()
         {
-            var canSession = new CanNodeSession(new CanNode(new MockMicroControllerImpl(new CanController()), new CanTransceiver()));
-            var canSession1 = new CanNodeSession(new CanNode(new MockMicroControllerImpl(new CanController()), new CanTransceiver()));
-            var canSession2 = new CanNodeSession(new CanNode(new MockMicroControllerImpl(new CanController()), new CanTransceiver()));
+            var canSession = Utils.GetNewCanSession();
+            var canSession1 = Utils.GetNewCanSession();
+            var canSession2 = Utils.GetNewCanSession();
             var network = new Network(new CanBus(), 1000);
 
             network.AddNodeSession(canSession, ConnectionState.Disconnected);
@@ -58,7 +59,7 @@ namespace CanSimulator.UnitTests.Model
         [TestMethod]
         public void ConnectCanNodeSessionTest()
         {
-            var canSession = new CanNodeSession(new CanNode(new MockMicroControllerImpl(new CanController()), new CanTransceiver()));
+            var canSession = Utils.GetNewCanSession();
             var network = new Network(new CanBus(), 1000);
 
             network.AddNodeSession(canSession, ConnectionState.Disconnected);

@@ -18,11 +18,10 @@ namespace TestRunner
 
             var canSimulator = canSimulatorFactory.CanSimulator;
             var nodeBuilder = builder.NodeSessionBuilder;
-            var controllerBuilder = builder.CanControllerBuilder;
 
-            var nodeSession1 = nodeBuilder.CreateCanNodeSession(new MockMicroControllerImpl(controllerBuilder.CanController));
-            var nodeSession2 = nodeBuilder.CreateCanNodeSession(new MockMicroControllerImpl(controllerBuilder.CanController));
-            var nodeSession3 = nodeBuilder.CreateCanNodeSession(new MockMicroControllerImpl(controllerBuilder.CanController));
+            var nodeSession1 = nodeBuilder.CreateCanNodeSession(typeof(MockMicroControllerImpl));
+            var nodeSession2 = nodeBuilder.CreateCanNodeSession(typeof(MockMicroControllerImpl));
+            var nodeSession3 = nodeBuilder.CreateCanNodeSession(typeof(MockMicroControllerImpl));
 
             network.AddNodeSession(nodeSession1, ConnectionState.Connected);
             network.AddNodeSession(nodeSession2, ConnectionState.Connected);

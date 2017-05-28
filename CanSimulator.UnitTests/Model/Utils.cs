@@ -1,24 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using CanSimulator.MicroControllers;
+using CanSimulator.Model.Node;
 using CanSimulator.Model.Node.Components;
 using CanSimulator.Model.Signal;
 
-namespace CanSimulator.Model.Node
+namespace CanSimulator.UnitTests.Model
 {
-    public class NodeSessionBuilder
+    internal class Utils
     {
-        internal NodeSessionBuilder()
-        {
-        }
-
-        public CanNodeSession CreateCanNodeSession(Type microcontrollerType)
+        internal static CanNodeSession GetNewCanSession()
         {
             var canController = new CanController();
-            IMicrocontroller microController = (IMicrocontroller)Activator.CreateInstance(microcontrollerType);
-            microController.CanController = canController;
+            var microController = new MockMicroControllerImpl(canController);
             var transceiver = new CanTransceiver(canController);
             canController.SetControllerProperties(transceiver, microController, new FrameBuilder());
 
             return new CanNodeSession(new CanNode(microController, transceiver));
-        } 
+        }
     }
 }

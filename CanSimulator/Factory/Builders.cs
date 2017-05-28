@@ -8,6 +8,5 @@ namespace CanSimulator.Factory
         internal Builders() { }
 
         public NodeSessionBuilder NodeSessionBuilder => new NodeSessionBuilder();
-        public CanControllerBuilder CanControllerBuilder => new CanControllerBuilder();
     }
 }

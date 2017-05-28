@@ -65,6 +65,7 @@
     <Compile Include="Model\Node\Unsubscriber.cs" />
     <Compile Include="Model\Signal\Frame.cs" />
     <Compile Include="Model\Signal\Utils.cs" />
+    <Compile Include="Model\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

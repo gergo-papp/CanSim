@@ -1,8 +1,11 @@
 ﻿namespace CanSimulator.Model.Node.Components
 {
+    /// <summary>
+    /// It is required that a Micro-controller has a parameterless constructor
+    /// </summary>
     public interface IMicrocontroller
     {
-        CanController CanController { get; }
+        CanController CanController { get; set; }
 
         void Run();
     }

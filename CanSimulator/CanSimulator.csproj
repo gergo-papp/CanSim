@@ -50,7 +50,6 @@
     <Compile Include="Model\Bus\CanBus.cs" />
     <Compile Include="Model\Bus\Unsubscriber.cs" />
     <Compile Include="Model\Network.cs" />
-    <Compile Include="Model\Node\Components\CanControllerBuilder.cs" />
     <Compile Include="Model\Node\CanNodeSession.cs" />
     <Compile Include="Model\Node\Components\CanController.cs" />
     <Compile Include="Model\Node\Components\CanNode.cs" />
@@ -66,6 +65,7 @@
     <Compile Include="Model\Signal\Components\DataLengthCode.cs" />
     <Compile Include="Model\Signal\Components\EndOfFrame.cs" />
     <Compile Include="Model\Signal\Frame.cs" />
+    <Compile Include="Model\Signal\FrameBuilder.cs" />
     <Compile Include="Model\Signal\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

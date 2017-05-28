@@ -8,9 +8,14 @@ namespace CanSimulator.MicroControllers
     {
         private bool _running = true;
 
-        public CanController CanController { get; }
+        public CanController CanController { get; set; }
 
-        public MockMicroControllerImpl(CanController canController)
+
+        public MockMicroControllerImpl()
+        {
+        }
+
+        public MockMicroControllerImpl(CanController canController) : this()
         {
             CanController = canController;
         }
