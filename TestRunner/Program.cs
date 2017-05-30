@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using CanSimulator.Factory;
 using CanSimulator.MicroControllers;
 using CanSimulator.Model.Node;
@@ -19,19 +20,17 @@ namespace TestRunner
             var canSimulator = canSimulatorFactory.CanSimulator;
             var nodeBuilder = builder.NodeSessionBuilder;
 
-            var nodeSession1 = nodeBuilder.CreateCanNodeSession(typeof(MockMicroControllerImpl));
-            var nodeSession2 = nodeBuilder.CreateCanNodeSession(typeof(MockMicroControllerImpl));
-            var nodeSession3 = nodeBuilder.CreateCanNodeSession(typeof(MockMicroControllerImpl));
+            var sensor = nodeBuilder.CreateCanNodeSession(typeof(RpmSensorMicroController));
+            var dashboard = nodeBuilder.CreateCanNodeSession(typeof(RpmDashboardIndicatorMicroController));
 
-            network.AddNodeSession(nodeSession1, ConnectionState.Connected);
-            network.AddNodeSession(nodeSession2, ConnectionState.Connected);
-            network.AddNodeSession(nodeSession3, ConnectionState.Connected);
+            network.AddNodeSession(sensor, ConnectionState.Connected);
+            network.AddNodeSession(dashboard, ConnectionState.Connected);
 
 
             canSimulator.RunFor(10000);
 
             Thread.Sleep(15000);
-            canSimulator.Stop();
+            Console.ReadKey();
         }
     }
 }

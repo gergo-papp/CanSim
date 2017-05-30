@@ -23,9 +23,31 @@ namespace CanSimulator.Model.Node.Components
         }
 
         /// <summary>
+        /// Sends a new Frame to the owning Micro-controller
+        /// </summary>
+        /// <param name="frame"></param>
+        internal void SendFrameToOwningMicroController(Frame frame)
+        {
+            _owningMicrocontroller.ReceiveData(frame);
+        }
+
+        /// <summary>
+        /// Called by the MicroController to broadcast a new from on the network
+        /// </summary>
+        /// <param name="frame"></param>
+        internal void ReceiveFrameFromOwningMicroController(Frame frame)
+        {
+            foreach (Bit bit in frame.AllBits())
+            {
+                _transceiver.Write(bit);
+            }
+            
+        }
+
+        /// <summary>
         /// Called by the CanTransciever to read a new bit.
         /// </summary>
-        public void ReceiveBit(Bit bit)
+        internal void ReceiveBit(Bit bit)
         {
             AddToFrame(bit);
         }

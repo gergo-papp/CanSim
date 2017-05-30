@@ -31,6 +31,7 @@ namespace CanSimulator.Model.Node.Components
 
         public void Write(Bit vaue)
         {
+            _busObserver.OnNext(vaue);
             OnNext(vaue);
         }
 

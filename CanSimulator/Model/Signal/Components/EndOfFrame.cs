@@ -12,5 +12,16 @@ namespace CanSimulator.Model.Signal.Components
         {
             EOF = new BitArray(EOFLength, true);
         }
+
+        public Bit[] Bits()
+        {
+            Bit[] bits = new Bit[EOFLength];
+            for (int i = 0; i < EOFLength; i++)
+            {
+                bits[i] = new Bit(EOF[i]);
+            }
+
+            return bits;
+        }
     }
 }

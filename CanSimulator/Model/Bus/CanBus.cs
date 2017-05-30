@@ -49,15 +49,31 @@ namespace CanSimulator.Model.Bus
                 }
                 else
                 {
-                    if (value.Value == false || _currentValue.Value == false) // "0" is dominant so we assign it if any value is "0"
+                    if (value == null)
+                    {
+                        value = new Bit(false);
+                    }
+
+                    _currentValue.Value = value.Value;
+
+                    /*if (value.Value == false || _currentValue.Value == false) // "0" is dominant so we assign it if any value is "0"
                     {
                         _currentValue.Value = false;
                     }
                     else
                     {
                         _currentValue.Value = true; // We only assign "1" if "0" is not being assigned
-                    }
+                    }*/
                 }
+            }
+
+            if (_currentValue.Value)
+            {
+                Console.Write("0");
+            }
+            else
+            {
+                Console.Write("1");
             }
         }
 

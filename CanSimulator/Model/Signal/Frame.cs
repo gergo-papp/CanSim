@@ -1,4 +1,6 @@
-﻿using CanSimulator.Model.Signal.Components;
+﻿using System.Collections;
+using System.Collections.Generic;
+using CanSimulator.Model.Signal.Components;
 
 namespace CanSimulator.Model.Signal
 {
@@ -15,5 +17,22 @@ namespace CanSimulator.Model.Signal
         public Bit ACKSlot { get; set; }
         public Bit ACKDelimiter { get; set; }
         public EndOfFrame EndOfFrame { get; set; }
+
+        public IEnumerable<Bit> AllBits()
+        {
+            List<Bit> allBits = new List<Bit>();
+            allBits.Add(StartOfFrame);
+            allBits.AddRange(Identifier.Bits());
+            allBits.Add(RemoteTransmissionRequest);
+            allBits.Add(IdentifierExtensionBit);
+            allBits.Add(ReservedBit);
+            allBits.AddRange(Data.Bits());
+            allBits.Add(CRCDelimiter);
+            allBits.Add(ACKSlot);
+            allBits.Add(ACKDelimiter);
+            allBits.AddRange(EndOfFrame.Bits());
+
+            return allBits;
+        }
     }
 }

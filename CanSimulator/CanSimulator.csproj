@@ -47,6 +47,8 @@
     <Compile Include="Factory\Factory.cs" />
     <Compile Include="Factory\NetworkFactory.cs" />
     <Compile Include="MicroControllers\MockMicroControllerImpl.cs" />
+    <Compile Include="MicroControllers\RpmDashboardIndicatorMicroController.cs" />
+    <Compile Include="MicroControllers\RpmSensorMicroController.cs" />
     <Compile Include="Model\Bus\CanBus.cs" />
     <Compile Include="Model\Bus\Unsubscriber.cs" />
     <Compile Include="Model\Network.cs" />

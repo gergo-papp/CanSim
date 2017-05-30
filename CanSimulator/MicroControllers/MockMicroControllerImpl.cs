@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using CanSimulator.Model.Node.Components;
+using CanSimulator.Model.Signal;
 
 namespace CanSimulator.MicroControllers
 {
@@ -28,6 +29,11 @@ namespace CanSimulator.MicroControllers
                 Thread.Sleep(1000);
                 
             }
+        }
+
+        public void ReceiveData(Frame frame)
+        {
+            throw new NotImplementedException();
         }
     }
 }
